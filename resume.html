@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="content="
+        width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"">
+    <title>在线简历</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2311606_0020bnigqjqri.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .pill {}
+
+        .layout {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: "宋体bai", "Times New Roman", Times, serif;
+            color: #333;
+        }
+
+        .wrapper {
+            background-color: #ececec;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding-top: 40px;
+            height: 100%;
+        }
+
+        .aside {
+            float: left;
+            width: 280px;
+        }
+
+        .aside h1 {
+            font-size: 40px;
+        }
+
+        .aside .user {
+            text-align: center;
+            padding: 30px 0 20px 0;
+        }
+
+        .aside .user p {
+            margin-top: 20px;
+        }
+
+        .aside .user h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            border: 1px solid #d6d6d6;
+            margin: 16px auto;
+        }
+
+        .aside .user::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 20px solid #d6d6d6;
+            border-bottom: 20px solid transparent;
+            border-right: 140px solid #d6d6d6;
+            border-left: 140px solid transparent;
+        }
+
+        .aside .contact li {
+            border-bottom: 1px solid #d6d6d6;
+
+        }
+
+        .aside .contact .iconfont {
+            border-right: 1px solid #d6d6d6;
+            padding-right: 10px;
+            margin-right: 10px;
+            display: inline-block;
+            padding-left: 10px;
+            font-size: 20px;
+            color: #7bbaaa;
+        }
+
+        .aside .contact {
+            padding: 20px;
+            list-style: none;
+            line-height: 40px;
+        }
+
+        .aside .skills {
+            background: #7bbaaa;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .aside .skills dt {
+            color: #eee;
+            margin-top: 20px;
+        }
+
+        .aside .skills dd {
+            display: block;
+            height: 4px;
+            background: #7bbaaa;
+        }
+
+        .aside .skills .mastery {
+            height: 4px;
+            background: #fff;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .aside .others h2 {
+            margin: 20px 0 0 20px;
+        }
+
+        .intro img {
+            width: 90px;
+            height: 100px;
+            float: left;
+        }
+
+        .main {
+            margin-left: 280px;
+            background: #fff;
+            padding: 40px;
+            margin-right: 40px;
+            height: 1800px;
+        }
+
+        .main .intro p {
+            margin-left: 120px;
+        }
+
+        /* 教育经历 */
+        .main .intro {
+            overflow: hidden;
+            margin-left: -10px;
+            margin-right: -30px;
+            margin-top: -25px;
+            font-family: "方正姚体", Geneva, Arial, Helvetica, sans-serif;
+        }
+
+        .main .education h2 {
+            font-size: 40px;
+            color: #7bbaaa;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* .main .education {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main .education h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .main .education li {
+            margin-left: 20px;
+        } */
+        /* 项目经历 */
+        .main .projects {
+            overflow: hidden;
+            margin-left: -10px;
+            margin-right: -30px;
+            margin-top: -25px;
+            font-family: "方正姚体", Geneva, Arial, Helvetica, sans-serif;
+        }
+
+        .projects .bind {
+            color: #7bbaaa;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .one {
+            margin-top: 10px;
+        }
+
+        .one li {
+            letter-spacing: 1px;
+            color: #333;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        b.blodWords {
+            color: rgb(255, 90, 0);
+        }
+
+        .bind {
+            margin-top: 10px;
+        }
+
+        .blod {
+            color: rgb(73, 71, 71);
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .blodPurple {
+            color: darkslateblue;
+            font-weight: bold;
+        }
+
+        .blodblod {
+            font-weight: bold;
+        }
+
+        /* 项目二 */
+        .two {
+            padding-top: 20px;
+        }
+
+        .two li {
+            letter-spacing: 1px;
+            color: #333;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        /* 项目三 */
+        .three {
+            padding-top: 20px;
+        }
+
+        .three li {
+            letter-spacing: 1px;
+            color: #333;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        /* 开源项目 */
+        .main .projectss h2 {
+            font-size: 40px;
+            color: #7bbaaa;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main .projectss .four {
+            list-style: none;
+        }
+
+        .projectss .bind {
+            color: #7bbaaa;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .four li {
+            letter-spacing: 1px;
+            color: #333;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .five li {
+            letter-spacing: 1px;
+            color: #333;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .six li {
+            letter-spacing: 1px;
+            color: #333;
+
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper layout clearfix">
+        <div class="aside">
+            <div class="user">
+                <h1>杜梦杰</h1>
+                <p>初级前端工程师</p>
+            </div>
+            <ul class="contact">
+                <li><span class="iconfont icon-email"></span><a href="mailto:1165689381@qq.com">1165689381@qq.com</a>
+                </li>
+                <li><span class="iconfont icon-phone"></span><a href="tel:13601885942">13601885942</a></li>
+                <li><span class="iconfont icon-experience"></span>1年前端工作经验</li>
+                <li><span class="iconfont icon-education"></span>大专，自考本科中</li>
+            </ul>
+            <div class="skills">
+                <h2>我的技能</h2>
+                <dl>
+                    <dt>JavaScript/HTML/CSS3/SVG</dt>
+                    <dd><span class="mastery" style="width: 90%;"></span></dd>
+                    <dt>Vue/Vuex/Vue-router/Vuepress</dt>
+                    <dd><span class="mastery" style="width: 80%;"></span></dd>
+                    <dt>Node.js</dt>
+                    <dd><span class="mastery" style="width: 50%;"></span></dd>
+                    <dt>Webpack/Parcel/Npm/Yarn</dt>
+                    <dd><span class="mastery" style="width: 70%;"></span></dd>
+                    <dt>git/github</dt>
+                    <dd><span class="mastery" style="width: 75%;"></span></dd>
+                    <dt>ES6/Sass/Less/Babel</dt>
+                    <dd><span class="mastery" style="width: 0%;"></span></dd>
+                    <dt>React</dt>
+                    <dd><span class="mastery" style="width: 70%;"></span></dd>
+                </dl>
+            </div>
+            <div class="others">
+                <h2>其他</h2>
+                <ul class="contact">
+                    <li><span class="iconfont icon-github"></span><a
+                            href="https://github.com/dmj1234">github.com/dmj1234</a>
+                    </li>
+                    <li><span class="iconfont icon-blog"></span><a href="https://dmj1234.github.io/">个人博客</a></li>
+                    <li><span class="iconfont icon-zhihu"></span><a
+                            href="https://www.zhihu.com/people/yi-hui-tai-lang-68">知乎</a></li>
+                    <li><span class="iconfont icon-weixin"></span>LoveFandM1314</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="intro ">
+                <img src="./images/1.jpg" alt="">
+                <p>熟悉Vue技术栈，熟悉模块化、工程化开发流程，熟练使用ES6写代码，熟悉小程序</p>
+            </div>
+            <!-- 教育经历 -->
+            <div class="education">
+                <!-- <h2>教育经历</h2>
+                <div class="detail">
+                    <h3>上海财经大学</h3>
+                    <ul>
+                        <li>专业前20%</li>
+                    </ul>
+                    </dl>
+                </div> -->
+                <!-- <div class="work"></div>   -->
+                <div class="projects">
+                    <h2>项目经历</h2>
+                    <div class="one">
+                        <div class="bind">Singo UI(个人开源项目)</div>
+                        <li>
+                            <b class="blodblod">项目介绍</b>：该项目是参照iView、Ant Design、Element UI等UI库思路，做的一套基于Vue的简易<b
+                                class="blodWords"> UI组件库</b>
+                            ,目前已支持按钮、输入框、网格、布局、Toast、Popover等UI组件。
+                        <li>
+                        <li>每个组件均经历从<b class="blodWords"> 需求分析</b>到<b class="blodWords"> Mocha单元测试</b>，并用<b
+                                class="blodWords">
+                                TravisCI实现持续集成</b>，最终以Vuepress为基础制作官方文档。完成该项目是我对Vue的常用特性更加理解，同时提升了自己对<b
+                                class="blodWords"> 前端工程化流程以及单元测试重要性的深刻理解</b>,进一步了解了开源文化。
+                        </li>
+                        <p class="blod">技术：Vue.js/ VuePress/ ES6/ Parcel/ Npm Script/hs Mocha/ SCSS/ TravisCI</p>
+                        <p class="blod"><a href="https://github.com/dmj1234/SingoUI">
+                                <b class="blodPurple">项目源码</b></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://dmj1234.github.io/SingoUI/"><b class="blodPurple">在线预览</b></a>
+                        </p>
+                    </div>
+                    <div class="three">
+                        <div class="bind">Singo记账(React制作)</div>
+                        <li><b class="blodblod">项目介绍：</b>参照Figma视觉设计，基于React、<b class="blodWords">React
+                                Router</b>、自定义Hooks、webpack实现简易记账的单页面应用。
+                        </li>
+                        <li>项目以手机平台优先，使用<b class="blodWords">localStorage</b>保存网站数据，使用<b
+                                class="blodWords">dart-sass</b>代替<b class="blodWords">node-sass</b>提高编译速度，使用<b
+                                class="blodWords">Tree Shanking</b>的实现消除无用代码，自动化部署deploy。
+                        </li>
+                        <p class="blod">技术栈：TypeScript/ Webpack/ Hooks API /SVG</p>
+                        <p class="blod">
+                            <a href="https://github.com/dmj1234/React--singo">
+                                <b class="blodPurple">项目源码</b></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://dmj1234.github.io/singo/"><b class="blodPurple">在线预览</b></a>
+                        </p>
+                    </div>
+                    <div class="two">
+                        <div class="bind">Singo记账(Vue制作)</div>
+                        <li><b class="blodblod">项目介绍：</b>Singo记账是一款极简的记账产品，也是基于Vue、<b
+                                class="blodWords">TypeScript</b>、Vuex、Vue-Router实现的单页面应用，实现功能：包含，明细、记账、统计等页面，实现了记账、标签管理、数据统计等功能。
+                        </li>
+                        <li>项目以Vue CLI为基础创建项目模板，使用Less作<b class="blodWords">CSS预处理</b>，通过Vue Router实现<b
+                                class="blodWords">路由跳转</b>，通过vuex实现<b class="blodWords">状态管理</b>，用<b
+                                class="blodWords">Axios获取数据</b>，并对<b class="blodWords">接口进行了封装</b>。
+                        </li>
+                        <p class="blod">技术栈：TypeScript/ Vue/ Vue CLI/ Axios/ Vue Router/ Vuex/ ES6/ Npm/ Grid/ Less</p>
+                        <p class="blod"><a href="https://github.com/dmj1234/Vue-singo-websit">
+                                <b class="blodPurple">项目源码</b></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://dmj1234.github.io/Vue-singo-websit/#/money"><b
+                                    class="blodPurple">在线预览</b></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="projectss">
+                    <h2>开源项目</h2>
+                    <div class="four">
+                        <div class="bind">Flying站点</div>
+                        <li><b class="blodblod">项目介绍：</b>Flying站点是一款可以添加或取消的网站<b
+                                class="blodWords">导航平台</b>，通过添加或取消选择可以搭建自己喜欢的导航平台。</li>
+                        <li>基于<b class="blodWords">jQuery</b>的学习，以自己的风格打造的小平台，可以媒体查询、使用<b
+                                class="blodWords">LocalStory</b>保存网站数据，使用<b class="blodWords">SVG</b>创建网站小图标等实现网站的基本功能。
+                        </li>
+                        <p class="blod">技术栈：jQuery/ LocalStory/ SVG Symbol/ Git/ GitHub/ 媒体查询</p>
+                        <p class="blod"><a href="https://github.com/dmj1234/Flying">
+                                <b class="blodPurple">项目源码</b></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://dmj1234.github.io/Flying/dist/index.html"><b
+                                    class="blodPurple">在线预览</b></a>
+                        </p>
+                    </div>
+                    <div class="five">
+                        <div class="bind">动态皮卡丘</div>
+                        <li><b class="blodblod">项目介绍：</b>基于CSS3和动画实现一个<b class="blodWords">动态皮卡丘</b>。
+                        <li>使用<b class="blodWords"></b>jQuery</b>操作<b class="blodWords">DOM</b>，使用<b
+                                class="blodWords">axios</b>操作<b class="blodWords">AJAX</b></li>
+                        <p class="blod">技术栈：jQuery/ axios/ AJAX</p>
+                        <p class="blod"><a href="https://github.com/dmj1234/2020-10-23-Pikaqiu">
+                                <b class="blodPurple">项目源码</b></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://dmj1234.github.io/2020-10-23-Pikaqiu/dist/test.html"><b
+                                    class="blodPurple">在线预览</b></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="projectsss">
+                    <h2>个人技能</h2>
+                    <div class="six">
+
+                        <ul>
+                            <li>掌握HTML、DIV+CSS的<b class="blodWords">页面布局</b>，进行符合标准的<b
+                                    class="blodWords">语义化开发</b>，高度还原设计稿。</li>
+                            <li>熟悉原生JavaScript和ES6技术，包括<b class="blodWords">原型链、闭包、Ajax、JSONP、跨域</b>等。</li>
+                            <li>掌握localStory、sessionStory等前端存储方案，记录用户操作习惯或常用数据，从而降低HTTP请求，提升用户体验</li>
+                            <li>熟悉<b class="blodWords">Vue框架</b>的使用，理解重要概念如：<b
+                                    class="blodWords">生命周期、响应式原理、计算属性、监听器</b>等。</li>
+                            <li>掌握<b class="blodWords">模块化开发、工程化开发流程</b>，能够配置Webpack。</li>
+                            <li>熟悉<b class="blodWords">AngularJs、vueJS、React</b>等主流<b class="blodWords">MVC、MVVM</b>框架。
+                            </li>
+                            <li>掌握<b class="blodWords">Git/GitHub</b>工作处理流程</li>
+                            <li>有node.js的使用经验</li>
+                            <li>善于面向<b class="blodWords">Google</b>及<b class="blodWords">StackOverflow</b>编程</li><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
